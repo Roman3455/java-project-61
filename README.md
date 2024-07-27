@@ -4,4 +4,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6a5ecf3eb10c0afa8982/maintainability)](https://codeclimate.com/github/Roman3455/java-project-60/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6a5ecf3eb10c0afa8982/test_coverage)](https://codeclimate.com/github/Roman3455/java-project-60/test_coverage)
 
-![screencast](https://github.com/Roman3455/java-project-61/tree/main/app/assets/demo.cast)
+![screencast](https://asciinema.org/a/TTiLxAU7Y9APGacoGhlJUzLDT)
+
+![screencast](https://asciinema.org/a/s2EtUlJPqDNeqFsJjmRHRdoZr)
