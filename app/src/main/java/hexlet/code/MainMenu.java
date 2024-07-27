@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 class MainMenu {
     public static void selectOption() {
@@ -10,6 +11,7 @@ class MainMenu {
                 1-Greet
                 2-Even
                 3-Calc
+                4-GCD
                 0-Exit
                 Your choise:\s""");
 
@@ -24,6 +26,9 @@ class MainMenu {
                 break;
             case 3:
                 Calc.isGameLoop();
+                break;
+            case 4:
+                GCD.isGameLoop();
                 break;
             case 0:
                 break;

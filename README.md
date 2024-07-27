@@ -6,4 +6,6 @@
 
 [![even-game](https://asciinema.org/a/TTiLxAU7Y9APGacoGhlJUzLDT.svg)](https://asciinema.org/a/TTiLxAU7Y9APGacoGhlJUzLDT?autoplay=1)
 
-[![screencast](https://asciinema.org/a/s2EtUlJPqDNeqFsJjmRHRdoZr.svg)](https://asciinema.org/a/s2EtUlJPqDNeqFsJjmRHRdoZr?autoplay=1)
+[![calc-game](https://asciinema.org/a/s2EtUlJPqDNeqFsJjmRHRdoZr.svg)](https://asciinema.org/a/s2EtUlJPqDNeqFsJjmRHRdoZr?autoplay=1)
+
+[![gcd-game](https://asciinema.org/a/w6sFJUCf4mq5KpVJhoLhfSjTn.svg)](https://asciinema.org/a/w6sFJUCf4mq5KpVJhoLhfSjTn?autoplay=1)
