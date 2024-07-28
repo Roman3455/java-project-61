@@ -11,7 +11,6 @@ public class Calc {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
-
         while (countCorrectAnswers < maxWin) {
             int computingOperation = Randomizer.getRandomIntNum(3);
             int randNum1 = Randomizer.getRandomIntNum(100);

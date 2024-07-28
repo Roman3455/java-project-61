@@ -11,7 +11,6 @@ public class Even {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
-
         while (countCorrectAnswers < maxWin) {
             int num = Randomizer.getRandomIntNum(100);
             boolean numBoolean = (num % 2 == 0);

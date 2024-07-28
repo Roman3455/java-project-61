@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 class MainMenu {
     public static void selectOption() {
@@ -12,6 +13,7 @@ class MainMenu {
                 2-Even
                 3-Calc
                 4-GCD
+                5-Progression
                 0-Exit
                 Your choise:\s""");
 
@@ -29,6 +31,9 @@ class MainMenu {
                 break;
             case 4:
                 GCD.isGameLoop();
+                break;
+            case 5:
+                Progression.isGameLoop();
                 break;
             case 0:
                 break;

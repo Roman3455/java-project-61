@@ -8,4 +8,10 @@ public class Randomizer {
 
         return randomNum.nextInt(bound);
     }
+
+    public static int getRandomIntNum(int origin, int bound) {
+        Random randomNum = new Random();
+
+        return randomNum.nextInt(origin, bound);
+    }
 }
