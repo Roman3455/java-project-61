@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import hexlet.code.MainMenu;
 import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
@@ -9,7 +10,6 @@ public class Progression {
         String userName = Cli.greetings();
         System.out.println("What number is missing in the progression?");
 
-        int maxWin = 3;
         int countCorrectAnswers = 0;
         int minProgrLength = 5;
         int maxProgrLength = 11;
@@ -17,7 +17,7 @@ public class Progression {
         int maxProgrStep = 6;
         int minFirstVal = -50;
         int maxFirstVal = 51;
-        while (countCorrectAnswers < maxWin) {
+        while (countCorrectAnswers < MainMenu.MAX_WIN) {
             int progressionLength = Randomizer.getRandomIntNum(minProgrLength, maxProgrLength);
             int[] progressionArr = new int[progressionLength];
             int progressionStep = Randomizer.getRandomIntNum(minProgrStep, maxProgrStep);
@@ -48,7 +48,7 @@ public class Progression {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == maxWin) {
+        if (countCorrectAnswers == MainMenu.MAX_WIN) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

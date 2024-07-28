@@ -1,27 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import hexlet.code.MainMenu;
 import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
 public class Calc {
+    private static final int NUM_BOUND = 100;
+    private static final int COMPUTING_OPERATOR_NUM = 3;
+
     public static void isGameLoop() {
         String userName = Cli.greetings();
         System.out.println("What is the result of the expression?");
 
-        int maxWin = 3;
         int countCorrectAnswers = 0;
-        int boundNum = 100;
-        int compOperationNum = 3;
-        while (countCorrectAnswers < maxWin) {
-            int computingOperation = Randomizer.getRandomIntNum(compOperationNum);
-            int randNum1 = Randomizer.getRandomIntNum(boundNum);
-            int randNum2 = Randomizer.getRandomIntNum(boundNum);
+        while (countCorrectAnswers < MainMenu.MAX_WIN) {
+            int computingOperator = Randomizer.getRandomIntNum(COMPUTING_OPERATOR_NUM);
+            int randNum1 = Randomizer.getRandomIntNum(NUM_BOUND);
+            int randNum2 = Randomizer.getRandomIntNum(NUM_BOUND);
 
             String question;
             int result;
-
-            switch (computingOperation) {
+            switch (computingOperator) {
                 case 0:
                     question = randNum1 + " + " + randNum2;
                     result = randNum1 + randNum2;
@@ -50,7 +50,7 @@ public class Calc {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == maxWin) {
+        if (countCorrectAnswers == MainMenu.MAX_WIN) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

@@ -6,7 +6,9 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
-class MainMenu {
+public class MainMenu {
+    public static final int MAX_WIN = 3;
+
     public static void selectOption() {
         System.out.print("""
                 Please enter the game number and press Enter.

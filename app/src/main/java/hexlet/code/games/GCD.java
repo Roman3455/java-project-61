@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import hexlet.code.MainMenu;
 import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
@@ -9,10 +10,9 @@ public class GCD {
         String userName = Cli.greetings();
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        int maxWin = 3;
         int countCorrectAnswers = 0;
         int boundNum = 100;
-        while (countCorrectAnswers < maxWin) {
+        while (countCorrectAnswers < MainMenu.MAX_WIN) {
             int randNum1 = Randomizer.getRandomIntNum(boundNum);
             int randNum2 = Randomizer.getRandomIntNum(boundNum);
             System.out.println("Question: " + randNum1 + " " + randNum2);
@@ -30,7 +30,7 @@ public class GCD {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == maxWin) {
+        if (countCorrectAnswers == MainMenu.MAX_WIN) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

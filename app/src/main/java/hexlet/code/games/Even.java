@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import hexlet.code.MainMenu;
 import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
@@ -9,10 +10,9 @@ public class Even {
         String userName = Cli.greetings();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        int maxWin = 3;
         int countCorrectAnswers = 0;
         int boundNum = 100;
-        while (countCorrectAnswers < maxWin) {
+        while (countCorrectAnswers < MainMenu.MAX_WIN) {
             int num = Randomizer.getRandomIntNum(boundNum);
             boolean numBoolean = (num % 2 == 0);
             System.out.println("Question: " + num);
@@ -47,8 +47,7 @@ public class Even {
             System.out.println("Correct!");
             countCorrectAnswers++;
         }
-
-        if (countCorrectAnswers == maxWin) {
+        if (countCorrectAnswers == MainMenu.MAX_WIN) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
