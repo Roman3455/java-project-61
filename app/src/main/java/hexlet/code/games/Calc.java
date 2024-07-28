@@ -21,15 +21,15 @@ public class Calc {
 
             switch (computingOperation) {
                 case 0:
-                    question = randNum1 + "+" + randNum2;
+                    question = randNum1 + " + " + randNum2;
                     result = randNum1 + randNum2;
                     break;
                 case 1:
-                    question = randNum1 + "-" + randNum2;
+                    question = randNum1 + " - " + randNum2;
                     result = randNum1 - randNum2;
                     break;
                 default:
-                    question = randNum1 + "*" + randNum2;
+                    question = randNum1 + " * " + randNum2;
                     result = randNum1 * randNum2;
                     break;
             }
