@@ -7,7 +7,7 @@ import hexlet.code.ScannerUtil;
 public class Progression {
     public static void isGameLoop() {
         String userName = Cli.greetings();
-        System.out.println("What is the result of the expression?");
+        System.out.println("What number is missing in the progression?");
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
