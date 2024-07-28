@@ -21,28 +21,28 @@ public class MainMenu {
                 0-Exit
                 Your choise:\s""");
 
-        int selection = ScannerUtil.nextInt();
+        String selection = ScannerUtil.next();
 
         switch (selection) {
-            case 1:
+            case "1":
                 Cli.greetings();
                 break;
-            case 2:
+            case "2":
                 Even.isGameLoop();
                 break;
-            case 3:
+            case "3":
                 Calc.isGameLoop();
                 break;
-            case 4:
+            case "4":
                 GCD.isGameLoop();
                 break;
-            case 5:
+            case "5":
                 Progression.isGameLoop();
                 break;
-            case 6:
+            case "6":
                 Prime.isGameLoop();
                 break;
-            case 0:
+            case "0":
                 break;
             default:
                 System.out.println("Invalid value, try again");

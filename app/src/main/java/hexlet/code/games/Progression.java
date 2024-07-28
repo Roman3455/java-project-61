@@ -6,23 +6,24 @@ import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
 public class Progression {
+    private static final int MIN_FIRST_VAL = -50;
+    private static final int MAX_FIRST_VAL = 51;
+    private static final int MIN_PROGRESSION_STEP = 2;
+    private static final int MAX_PROGRESSION_STEP = 6;
+    private static final int MIN_PROGRESSION_LENGTH = 5;
+    private static final int MAX_PROGRESSION_LENGTH = 11;
+
     public static void isGameLoop() {
         String userName = Cli.greetings();
         System.out.println("What number is missing in the progression?");
 
         int countCorrectAnswers = 0;
-        int minProgrLength = 5;
-        int maxProgrLength = 11;
-        int minProgrStep = 2;
-        int maxProgrStep = 6;
-        int minFirstVal = -50;
-        int maxFirstVal = 51;
         while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int progressionLength = Randomizer.getRandomIntNum(minProgrLength, maxProgrLength);
+            int progressionLength = Randomizer.getRandomIntNum(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
             int[] progressionArr = new int[progressionLength];
-            int progressionStep = Randomizer.getRandomIntNum(minProgrStep, maxProgrStep);
+            int progressionStep = Randomizer.getRandomIntNum(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
             int randIndex = Randomizer.getRandomIntNum(progressionArr.length);
-            progressionArr[0] = Randomizer.getRandomIntNum(minFirstVal, maxFirstVal);
+            progressionArr[0] = Randomizer.getRandomIntNum(MIN_FIRST_VAL, MAX_FIRST_VAL);
             for (int i = 1; i < progressionLength; i++) {
                 progressionArr[i] = progressionArr[i - 1] + progressionStep;
             }

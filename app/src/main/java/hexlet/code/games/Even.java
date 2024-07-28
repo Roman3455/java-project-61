@@ -6,14 +6,15 @@ import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
 public class Even {
+    private static final int NUM_BOUND = 100;
+
     public static void isGameLoop() {
         String userName = Cli.greetings();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int countCorrectAnswers = 0;
-        int boundNum = 100;
         while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int num = Randomizer.getRandomIntNum(boundNum);
+            int num = Randomizer.getRandomIntNum(NUM_BOUND);
             boolean numBoolean = (num % 2 == 0);
             System.out.println("Question: " + num);
             System.out.print("Your answer: ");

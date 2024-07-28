@@ -6,15 +6,16 @@ import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
 public class GCD {
+    private static final int NUM_BOUND = 100;
+
     public static void isGameLoop() {
         String userName = Cli.greetings();
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int countCorrectAnswers = 0;
-        int boundNum = 100;
         while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int randNum1 = Randomizer.getRandomIntNum(boundNum);
-            int randNum2 = Randomizer.getRandomIntNum(boundNum);
+            int randNum1 = Randomizer.getRandomIntNum(NUM_BOUND);
+            int randNum2 = Randomizer.getRandomIntNum(NUM_BOUND);
             System.out.println("Question: " + randNum1 + " " + randNum2);
             System.out.print("Your answer: ");
             int userAnswer = ScannerUtil.nextInt();

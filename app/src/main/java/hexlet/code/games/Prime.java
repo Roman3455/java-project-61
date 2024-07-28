@@ -6,14 +6,15 @@ import hexlet.code.Randomizer;
 import hexlet.code.ScannerUtil;
 
 public class Prime {
+    private static final int NUM_BOUND = 200;
+
     public static void isGameLoop() {
         String userName = Cli.greetings();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int countCorrectAnswers = 0;
-        int boundNum = 200;
         while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int num = Randomizer.getRandomIntNum(boundNum);
+            int num = Randomizer.getRandomIntNum(NUM_BOUND);
             boolean numBoolean = isPrimeCheck(num);
             System.out.println("Question: " + num);
             System.out.print("Your answer: ");
