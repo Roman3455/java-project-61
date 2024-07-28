@@ -11,3 +11,5 @@
 [![gcd-game](https://asciinema.org/a/w6sFJUCf4mq5KpVJhoLhfSjTn.svg)](https://asciinema.org/a/w6sFJUCf4mq5KpVJhoLhfSjTn?autoplay=1)
 
 [![progression-game](https://asciinema.org/a/43vc6vVE1c7MN0so6636r0p6A.svg)](https://asciinema.org/a/43vc6vVE1c7MN0so6636r0p6A?autoplay=1)
+
+[![prime-game](https://asciinema.org/a/b0kR5Luo19jZ7X0ieyLJnaDBG.svg)](https://asciinema.org/a/b0kR5Luo19jZ7X0ieyLJnaDBG?autoplay=1)
