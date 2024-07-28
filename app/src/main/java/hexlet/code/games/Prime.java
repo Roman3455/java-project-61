@@ -11,8 +11,9 @@ public class Prime {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
+        int boundNum = 200;
         while (countCorrectAnswers < maxWin) {
-            int num = Randomizer.getRandomIntNum(200);
+            int num = Randomizer.getRandomIntNum(boundNum);
             boolean numBoolean = isPrimeCheck(num);
             System.out.println("Question: " + num);
             System.out.print("Your answer: ");
@@ -45,7 +46,7 @@ public class Prime {
             System.out.println("Correct!");
             countCorrectAnswers++;
         }
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == maxWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

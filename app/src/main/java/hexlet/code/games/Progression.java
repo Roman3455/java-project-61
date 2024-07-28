@@ -11,12 +11,18 @@ public class Progression {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
+        int minProgrLength = 5;
+        int maxProgrLength = 11;
+        int minProgrStep = 2;
+        int maxProgrStep = 6;
+        int minFirstVal = -50;
+        int maxFirstVal = 51;
         while (countCorrectAnswers < maxWin) {
-            int progressionLength = Randomizer.getRandomIntNum(5, 11);
+            int progressionLength = Randomizer.getRandomIntNum(minProgrLength, maxProgrLength);
             int[] progressionArr = new int[progressionLength];
-            int progressionStep = Randomizer.getRandomIntNum(2, 6);
+            int progressionStep = Randomizer.getRandomIntNum(minProgrStep, maxProgrStep);
             int randIndex = Randomizer.getRandomIntNum(progressionArr.length);
-            progressionArr[0] = Randomizer.getRandomIntNum(-50, 51);
+            progressionArr[0] = Randomizer.getRandomIntNum(minFirstVal, maxFirstVal);
             for (int i = 1; i < progressionLength; i++) {
                 progressionArr[i] = progressionArr[i - 1] + progressionStep;
             }
@@ -42,7 +48,7 @@ public class Progression {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == maxWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

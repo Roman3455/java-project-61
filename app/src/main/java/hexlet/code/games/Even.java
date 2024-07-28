@@ -11,8 +11,9 @@ public class Even {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
+        int boundNum = 100;
         while (countCorrectAnswers < maxWin) {
-            int num = Randomizer.getRandomIntNum(100);
+            int num = Randomizer.getRandomIntNum(boundNum);
             boolean numBoolean = (num % 2 == 0);
             System.out.println("Question: " + num);
             System.out.print("Your answer: ");
@@ -47,7 +48,7 @@ public class Even {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == maxWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

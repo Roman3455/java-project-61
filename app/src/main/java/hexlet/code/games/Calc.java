@@ -11,10 +11,12 @@ public class Calc {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
+        int boundNum = 100;
+        int compOperationNum = 3;
         while (countCorrectAnswers < maxWin) {
-            int computingOperation = Randomizer.getRandomIntNum(3);
-            int randNum1 = Randomizer.getRandomIntNum(100);
-            int randNum2 = Randomizer.getRandomIntNum(100);
+            int computingOperation = Randomizer.getRandomIntNum(compOperationNum);
+            int randNum1 = Randomizer.getRandomIntNum(boundNum);
+            int randNum2 = Randomizer.getRandomIntNum(boundNum);
 
             String question;
             int result;
@@ -48,7 +50,7 @@ public class Calc {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == maxWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

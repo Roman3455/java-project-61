@@ -11,9 +11,10 @@ public class GCD {
 
         int maxWin = 3;
         int countCorrectAnswers = 0;
+        int boundNum = 100;
         while (countCorrectAnswers < maxWin) {
-            int randNum1 = Randomizer.getRandomIntNum(100);
-            int randNum2 = Randomizer.getRandomIntNum(100);
+            int randNum1 = Randomizer.getRandomIntNum(boundNum);
+            int randNum2 = Randomizer.getRandomIntNum(boundNum);
             System.out.println("Question: " + randNum1 + " " + randNum2);
             System.out.print("Your answer: ");
             int userAnswer = ScannerUtil.nextInt();
@@ -29,7 +30,7 @@ public class GCD {
             countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == maxWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
