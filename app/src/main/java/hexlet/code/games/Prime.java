@@ -1,55 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.MainMenu;
-import hexlet.code.Randomizer;
-import hexlet.code.ScannerUtil;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
 public class Prime {
-    private static final int NUM_BOUND = 200;
+    public static void run() {
+        String ruleMessage = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.run(getQuestionsAndAnswers(), ruleMessage);
+    }
 
-    public static void isGameLoop() {
-        String userName = Cli.greetings();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    private static final int NUMBER_BOUND = 200;
 
-        int countCorrectAnswers = 0;
-        while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int num = Randomizer.getRandomIntNum(NUM_BOUND);
-            boolean numBoolean = isPrimeCheck(num);
-            System.out.println("Question: " + num);
-            System.out.print("Your answer: ");
-            String userAnswer = ScannerUtil.next();
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.QUESTION_ANSWER_COLUMNS][Engine.MAX_WIN];
+        for (int i = 0; i < Engine.MAX_WIN; i++) {
+            int randomIntNum = RandomUtils.getRandomIntNum(NUMBER_BOUND);
+            questionsAndAnswers[0][i] = String.valueOf(randomIntNum);
 
-            if (userAnswer.equalsIgnoreCase("yes") && (userAnswer.equalsIgnoreCase("yes")
-                    != numBoolean)) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
+            boolean numBoolean = isPrimeCheck(randomIntNum);
+            if (numBoolean) {
+                questionsAndAnswers[1][i] = "yes";
+            } else {
+                questionsAndAnswers[1][i] = "no";
             }
-            if (userAnswer.equalsIgnoreCase("no") && (userAnswer.equalsIgnoreCase("no")
-                    == numBoolean)) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
-            }
-            if (!userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("no")
-                    && !numBoolean) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was 'no'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
-            }
-            if (!userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("no")
-                    && numBoolean) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was 'yes'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
-            }
-            System.out.println("Correct!");
-            countCorrectAnswers++;
         }
-        if (countCorrectAnswers == MainMenu.MAX_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+
+        return questionsAndAnswers;
     }
 
     private static boolean isPrimeCheck(int num) {
@@ -61,7 +37,6 @@ public class Prime {
             if (num % i == 0) {
                 return false;
             }
-
         }
         return true;
     }

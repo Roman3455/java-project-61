@@ -1,11 +1,38 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.MainMenu;
-import hexlet.code.Randomizer;
-import hexlet.code.ScannerUtil;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
+
+import java.util.StringJoiner;
 
 public class Progression {
+    public static void run() {
+        String ruleMessage = "What number is missing in the progression?";
+        Engine.run(getQuestionsAndAnswers(), ruleMessage);
+    }
+
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.QUESTION_ANSWER_COLUMNS][Engine.MAX_WIN];
+        for (int i = 0; i < Engine.MAX_WIN; i++) {
+            int[] progressionArr = getProgression();
+            int hiddenNumIndex = RandomUtils.getRandomIntNum(progressionArr.length);
+            questionsAndAnswers[1][i] = String.valueOf(progressionArr[hiddenNumIndex]);
+
+            StringJoiner joiner = new StringJoiner(" ");
+            for (int j = 0; j < progressionArr.length; j++) {
+                if (j == hiddenNumIndex) {
+                    joiner.add("..");
+                } else {
+                    joiner.add(String.valueOf(progressionArr[j]));
+                }
+            }
+
+            questionsAndAnswers[0][i] = joiner.toString();
+        }
+
+        return questionsAndAnswers;
+    }
+
     private static final int MIN_FIRST_VAL = -50;
     private static final int MAX_FIRST_VAL = 51;
     private static final int MIN_PROGRESSION_STEP = 2;
@@ -13,44 +40,16 @@ public class Progression {
     private static final int MIN_PROGRESSION_LENGTH = 5;
     private static final int MAX_PROGRESSION_LENGTH = 11;
 
-    public static void isGameLoop() {
-        String userName = Cli.greetings();
-        System.out.println("What number is missing in the progression?");
+    private static int[] getProgression() {
+        int progressionLength = RandomUtils.getRandomIntNum(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+        int progressionStep = RandomUtils.getRandomIntNum(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
 
-        int countCorrectAnswers = 0;
-        while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int progressionLength = Randomizer.getRandomIntNum(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            int[] progressionArr = new int[progressionLength];
-            int progressionStep = Randomizer.getRandomIntNum(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
-            int randIndex = Randomizer.getRandomIntNum(progressionArr.length);
-            progressionArr[0] = Randomizer.getRandomIntNum(MIN_FIRST_VAL, MAX_FIRST_VAL);
-            for (int i = 1; i < progressionLength; i++) {
-                progressionArr[i] = progressionArr[i - 1] + progressionStep;
-            }
-
-            System.out.print("Question: ");
-            for (int j = 0; j < progressionLength; j++) {
-                if (j == randIndex) {
-                    System.out.print(".. ");
-                } else {
-                    System.out.print(progressionArr[j] + " ");
-                }
-            }
-
-            System.out.print("\nYour answer: ");
-            int userAnswer = ScannerUtil.nextInt();
-            if (userAnswer != progressionArr[randIndex]) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + progressionArr[randIndex] + "'.\n" + "Let's try again, " + userName + "!");
-                break;
-            }
-
-            System.out.println("Correct!");
-            countCorrectAnswers++;
+        int[] progressionArr = new int[progressionLength];
+        progressionArr[0] = RandomUtils.getRandomIntNum(MIN_FIRST_VAL, MAX_FIRST_VAL);
+        for (int i = 1; i < progressionLength; i++) {
+            progressionArr[i] = progressionArr[i - 1] + progressionStep;
         }
 
-        if (countCorrectAnswers == MainMenu.MAX_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        return progressionArr;
     }
 }

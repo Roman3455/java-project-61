@@ -1,39 +1,27 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.MainMenu;
-import hexlet.code.Randomizer;
-import hexlet.code.ScannerUtil;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
 public class GCD {
-    private static final int NUM_BOUND = 100;
+    public static void run() {
+        String ruleMessage = "Find the greatest common divisor of given numbers.";
+        Engine.run(getQuestionsAndAnswers(), ruleMessage);
+    }
 
-    public static void isGameLoop() {
-        String userName = Cli.greetings();
-        System.out.println("Find the greatest common divisor of given numbers.");
+    private static final int NUMBER_BOUND = 100;
 
-        int countCorrectAnswers = 0;
-        while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int randNum1 = Randomizer.getRandomIntNum(NUM_BOUND);
-            int randNum2 = Randomizer.getRandomIntNum(NUM_BOUND);
-            System.out.println("Question: " + randNum1 + " " + randNum2);
-            System.out.print("Your answer: ");
-            int userAnswer = ScannerUtil.nextInt();
-            int result = gsd(randNum1, randNum2);
-
-            if (userAnswer != result) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
-            }
-
-            System.out.println("Correct!");
-            countCorrectAnswers++;
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.QUESTION_ANSWER_COLUMNS][Engine.MAX_WIN];
+        for (int i = 0; i < Engine.MAX_WIN; i++) {
+            int randomIntNum1 = RandomUtils.getRandomIntNum(NUMBER_BOUND);
+            int randomIntNum2 = RandomUtils.getRandomIntNum(NUMBER_BOUND);
+            questionsAndAnswers[0][i] = randomIntNum1 + " " + randomIntNum2;
+            int result = gsd(randomIntNum1, randomIntNum2);
+            questionsAndAnswers[1][i] = String.valueOf(result);
         }
 
-        if (countCorrectAnswers == MainMenu.MAX_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        return questionsAndAnswers;
     }
 
     private static int gsd(int num1, int num2) {

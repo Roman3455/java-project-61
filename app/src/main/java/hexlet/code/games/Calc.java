@@ -1,57 +1,41 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.MainMenu;
-import hexlet.code.Randomizer;
-import hexlet.code.ScannerUtil;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
 public class Calc {
-    private static final int NUM_BOUND = 100;
-    private static final int COMPUTING_OPERATOR_NUM = 3;
+    public static void run() {
+        String ruleMessage = "What is the result of the expression?";
+        Engine.run(getQuestionsAndAnswers(), ruleMessage);
+    }
 
-    public static void isGameLoop() {
-        String userName = Cli.greetings();
-        System.out.println("What is the result of the expression?");
+    private static final int OPERAND_BOUND = 100;
 
-        int countCorrectAnswers = 0;
-        while (countCorrectAnswers < MainMenu.MAX_WIN) {
-            int computingOperator = Randomizer.getRandomIntNum(COMPUTING_OPERATOR_NUM);
-            int randNum1 = Randomizer.getRandomIntNum(NUM_BOUND);
-            int randNum2 = Randomizer.getRandomIntNum(NUM_BOUND);
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.QUESTION_ANSWER_COLUMNS][Engine.MAX_WIN];
+        String[] operators = {"+", "-", "*"};
 
-            String question;
-            int result;
-            switch (computingOperator) {
-                case 0:
-                    question = randNum1 + " + " + randNum2;
-                    result = randNum1 + randNum2;
+        for (int i = 0; i < Engine.MAX_WIN; i++) {
+            int randomIntNum1 = RandomUtils.getRandomIntNum(OPERAND_BOUND);
+            int randomIntNum2 = RandomUtils.getRandomIntNum(OPERAND_BOUND);
+            String operator = operators[RandomUtils.getRandomIntNum(operators.length)];
+
+            switch (operator) {
+                case "+":
+                    questionsAndAnswers[0][i] = randomIntNum1 + "+" + randomIntNum2;
+                    questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 + randomIntNum2);
                     break;
-                case 1:
-                    question = randNum1 + " - " + randNum2;
-                    result = randNum1 - randNum2;
+                case "-":
+                    questionsAndAnswers[0][i] = randomIntNum1 + "-" + randomIntNum2;
+                    questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 - randomIntNum2);
                     break;
                 default:
-                    question = randNum1 + " * " + randNum2;
-                    result = randNum1 * randNum2;
+                    questionsAndAnswers[0][i] = randomIntNum1 + "*" + randomIntNum2;
+                    questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 * randomIntNum2);
                     break;
             }
-
-            System.out.println("Question: " + question);
-            System.out.print("Your answer: ");
-            int userAnswer = ScannerUtil.nextInt();
-
-            if (userAnswer != result) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'.\n"
-                        + "Let's try again, " + userName + "!");
-                break;
-            }
-
-            System.out.println("Correct!");
-            countCorrectAnswers++;
         }
 
-        if (countCorrectAnswers == MainMenu.MAX_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        return questionsAndAnswers;
     }
 }
