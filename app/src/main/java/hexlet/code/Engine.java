@@ -12,7 +12,7 @@ public class Engine {
         while (countCorrectAnswers < MAX_WIN) {
             System.out.println("Question: " + questionsAndAnswers[0][countCorrectAnswers]);
             System.out.print("Your answer: ");
-            String userAnswer = App.scanner.next();
+            String userAnswer = App.getUserInput();
 
             if (!userAnswer.equalsIgnoreCase(questionsAndAnswers[1][countCorrectAnswers])) {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"

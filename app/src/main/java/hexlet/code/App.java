@@ -9,7 +9,15 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    protected static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static String getUserInput() {
+        return scanner.next();
+    }
+
+    public static void closeScanner() {
+        scanner.close();
+    }
 
     public static void main(String[] args) {
         System.out.print("""
@@ -23,7 +31,7 @@ public class App {
                 0-Exit
                 Your choise:\s""");
 
-        String selection = scanner.next();
+        String selection = getUserInput();
 
         switch (selection) {
             case "1":
@@ -50,6 +58,6 @@ public class App {
                 System.out.println("Invalid value, try again");
         }
 
-        scanner.close();
+        closeScanner();
     }
 }
