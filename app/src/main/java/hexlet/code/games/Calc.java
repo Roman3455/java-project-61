@@ -22,15 +22,15 @@ public class Calc {
 
             switch (operator) {
                 case "+":
-                    questionsAndAnswers[0][i] = randomIntNum1 + "+" + randomIntNum2;
+                    questionsAndAnswers[0][i] = randomIntNum1 + " + " + randomIntNum2;
                     questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 + randomIntNum2);
                     break;
                 case "-":
-                    questionsAndAnswers[0][i] = randomIntNum1 + "-" + randomIntNum2;
+                    questionsAndAnswers[0][i] = randomIntNum1 + " - " + randomIntNum2;
                     questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 - randomIntNum2);
                     break;
                 default:
-                    questionsAndAnswers[0][i] = randomIntNum1 + "*" + randomIntNum2;
+                    questionsAndAnswers[0][i] = randomIntNum1 + " * " + randomIntNum2;
                     questionsAndAnswers[1][i] = String.valueOf(randomIntNum1 * randomIntNum2);
                     break;
             }
